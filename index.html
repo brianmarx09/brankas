@@ -215,6 +215,34 @@
 
 	    tampilkanTransaksi();
 	});
+
+    // security
+    document.addEventListener('contextmenu', function(e) {
+	    e.preventDefault();
+	});
+
+    document.onkeydown = function (e) {
+	    // Detecting Ctrl + U (view source) and F12 (developer tools)
+	    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+	        e.preventDefault();
+	        window.location.href = "https://rizzportfolio.vercel.app";
+	    }
+	    if (e.key === 'F12') {
+	        e.preventDefault();
+	        window.location.href = "https://rizzportfolio.vercel.app";
+	    }
+	    
+	    // dev tools
+	    var devtools = /./;
+		devtools.toString = function() {
+		    window.location.href = "https://rizzportfolio.vercel.app";
+		};
+
+		setInterval(function() {
+		    console.log(devtools);
+		}, 1000);
+	};
+
     </script>
   </body>
 
